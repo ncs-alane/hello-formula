@@ -9,11 +9,6 @@ transport:
 provisioner:
   name: dokken_salt
   formula: hello
-  pillars:
-    top.sls:
-      base:
-        '*':
-          - hello
   state_top:
     base:
       '*':
