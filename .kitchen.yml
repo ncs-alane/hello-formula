@@ -1,0 +1,33 @@
+---
+driver:
+  name: dokken_salt
+  salt_version: 2016.3
+
+transport:
+  name: dokken
+
+provisioner:
+  name: dokken_salt
+  formula: hello
+  pillars:
+    top.sls:
+      base:
+        '*':
+          - hello
+  state_top:
+    base:
+      '*':
+        - hello
+
+verifier:
+  name: inspec
+
+platforms:
+- name: ubuntu-14.04
+  driver:
+    image: ubuntu:14.04
+
+suites:
+  - name: hello
+    state_list:
+      - hello
